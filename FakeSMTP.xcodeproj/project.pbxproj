@@ -12,12 +12,11 @@
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		B82674190EE7A0EF002BF5D9 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = B82674180EE7A0EF002BF5D9 /* AppController.m */; };
-		B8315CB50EE8ED9F00C69A3B /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8315CB40EE8ED9F00C69A3B /* Sparkle.framework */; };
-		B8315DED0EE8EDAE00C69A3B /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B8315CB40EE8ED9F00C69A3B /* Sparkle.framework */; };
 		B8315E150EE8EF9A00C69A3B /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = B8315E140EE8EF9A00C69A3B /* dsa_pub.pem */; };
 		B8A7D0C30EE7B24E002DC460 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = B8A7D0C20EE7B24E002DC460 /* AsyncSocket.m */; };
 		B8A7D2A30EE7D089002DC460 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8A7D2A20EE7D089002DC460 /* Security.framework */; };
 		B8A7D3860EE8134B002DC460 /* Mail.icns in Resources */ = {isa = PBXBuildFile; fileRef = B8A7D3850EE8134B002DC460 /* Mail.icns */; };
+		B8B37835101B7DDA00A9D525 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8B37834101B7DDA00A9D525 /* Sparkle.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,7 +26,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B8315DED0EE8EDAE00C69A3B /* Sparkle.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,12 +44,12 @@
 		8D1107320486CEB800E47090 /* FakeSMTP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FakeSMTP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B82674170EE7A0EF002BF5D9 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
 		B82674180EE7A0EF002BF5D9 /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
-		B8315CB40EE8ED9F00C69A3B /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = ../Sparkle.framework; sourceTree = SOURCE_ROOT; };
 		B8315E140EE8EF9A00C69A3B /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		B8A7D0C10EE7B24E002DC460 /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncSocket.h; sourceTree = "<group>"; };
 		B8A7D0C20EE7B24E002DC460 /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSocket.m; sourceTree = "<group>"; };
 		B8A7D2A20EE7D089002DC460 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = /System/Library/Frameworks/Security.framework; sourceTree = "<absolute>"; };
 		B8A7D3850EE8134B002DC460 /* Mail.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Mail.icns; sourceTree = "<group>"; };
+		B8B37834101B7DDA00A9D525 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = "../../Xcode Projects/Sparkle.framework"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +59,7 @@
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				B8A7D2A30EE7D089002DC460 /* Security.framework in Frameworks */,
-				B8315CB50EE8ED9F00C69A3B /* Sparkle.framework in Frameworks */,
+				B8B37835101B7DDA00A9D525 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,7 +78,6 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B8315CB40EE8ED9F00C69A3B /* Sparkle.framework */,
 				B8A7D2A20EE7D089002DC460 /* Security.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 			);
@@ -108,6 +105,7 @@
 		29B97314FDCFA39411CA2CEA /* FakeSMTP */ = {
 			isa = PBXGroup;
 			children = (
+				B8B37834101B7DDA00A9D525 /* Sparkle.framework */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -243,6 +241,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/..\"",
+					"\"$(SRCROOT)/../../Xcode Projects\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -264,6 +263,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/..\"",
+					"\"$(SRCROOT)/../../Xcode Projects\"",
 				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
