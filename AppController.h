@@ -17,7 +17,7 @@
 	IBOutlet id startStopButton;
 	IBOutlet id clearLogButton;
 	IBOutlet id textView;
-	
+
 	BOOL isRunning, isInsideData;
 }
 

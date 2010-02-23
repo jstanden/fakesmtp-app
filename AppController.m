@@ -123,25 +123,26 @@
 	
 	//AuthorizationItem authItems = {kAuthorizationRightExecute, 0, NULL, 0};
 	//AuthorizationRights authRights = {1, &authItems};
-
-	int port = 2525;
-	if(!isRunning) {
-		
-		[[NSUserDefaults standardUserDefaults] synchronize];
-		int portSelection = [[NSUserDefaults standardUserDefaults] integerForKey:@"portSelection"];
-		
-		NSLog(@"portSelection: %@", portSelection);
-		if(portSelection == 0) {
-			int port = 2525;
-		} else if (portSelection == 1) {
-			// auth it
-			int port = 2555;
-		} else {
-			// pull custom port
+	int port = 0;
+	[[NSUserDefaults standardUserDefaults] synchronize];
+	int portSelection = [[NSUserDefaults standardUserDefaults] integerForKey:@"portSelection"];
+	
+	NSLog(@"portSelection: %i", portSelection);
+	if(portSelection == 0) {
+		port = 2525;
+	} else if (portSelection == 1) {
+		// auth it
+		port = 25;
+	} else {
+		port = [[NSUserDefaults standardUserDefaults] integerForKey:@"port"];
+		if (port < 0 || port > 65535) {
+			
 		}
-		
-//		if(port < 0 || port > 65535)
-//			port = 0;
+		NSLog(@"Custom port: %i", port);	
+	}
+	
+	NSLog(@"Listening on port: %i", port);	
+	if(!isRunning) {
 		
 		NSError *error = nil;
 		if(![listenSocket acceptOnPort:port error:&error]) {
