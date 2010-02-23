@@ -13,6 +13,21 @@
 
 @implementation AppController
 
++(void)intialize {
+    NSString *userDefaultsValuesPath;
+    NSDictionary *userDefaultsValuesDict;
+
+	
+    // load the default values for the user defaults
+    userDefaultsValuesPath=[[NSBundle mainBundle] pathForResource:@"UserDefaults"
+														   ofType:@"plist"];
+    userDefaultsValuesDict=[NSDictionary dictionaryWithContentsOfFile:userDefaultsValuesPath];
+	
+    // set them in the standard user defaults
+    [[NSUserDefaults standardUserDefaults] registerDefaults:userDefaultsValuesDict];
+	
+}
+
 -(id)init {
 	if(self = [super init]) {
 		listenSocket = [[AsyncSocket alloc] initWithDelegate:self];
@@ -78,43 +93,55 @@
 }
 
 -(IBAction)startStopServer:(id)sender {
-	/*
-	AuthorizationRef authRef;
-	AuthorizationRights authRights;
-	AuthorizationFlags authFlags;
 	
-	authFlags = kAuthorizationFlagDefaults | 
-		kAuthorizationFlagPreAuthorize |
-		kAuthorizationFlagInteractionAllowed |
-		kAuthorizationFlagExtendRights;
-	
-	AuthorizationItem authItem[1];
-	authItem[0].name = "system.preferences"; // system.privilege.admin
-	authItem[0].valueLength = 0;
-	authItem[0].value = NULL;
-	authItem[0].flags = 0;
-	authRights.count = sizeof(authItem) / sizeof(authItem[0]);
-	authRights.items = authItem;
-	
-	OSStatus authStatus;
-	authStatus = AuthorizationCreate(NULL, kAuthorizationEmptyEnvironment, kAuthorizationFlagDefaults, &authRef);
-	
-	authStatus = AuthorizationCopyRights(authRef, &authRights, kAuthorizationEmptyEnvironment, authFlags, NULL);
-	
-	if(authStatus == errAuthorizationSuccess)
-		NSLog(@"Auth approved!");
-	else if(authStatus == errAuthorizationDenied)
-		NSLog(@"Oh no, auth denied!");
+//	AuthorizationRef authRef;
+//	AuthorizationRights authRights;
+//	AuthorizationFlags authFlags;
+//	
+//	authFlags = kAuthorizationFlagDefaults | 
+//		kAuthorizationFlagPreAuthorize |
+//		kAuthorizationFlagInteractionAllowed |
+//		kAuthorizationFlagExtendRights;
+//	
+//	AuthorizationItem authItem[1];
+//	authItem[0].name = "system.preferences"; // system.privilege.admin
+//	authItem[0].valueLength = 0;
+//	authItem[0].value = NULL;
+//	authItem[0].flags = 0;
+//	authRights.count = sizeof(authItem) / sizeof(authItem[0]);
+//	authRights.items = authItem;
+//	
+//	OSStatus authStatus;
+//	authStatus = AuthorizationCreate(NULL, kAuthorizationEmptyEnvironment, kAuthorizationFlagDefaults, &authRef);
+//	
+//	authStatus = AuthorizationCopyRights(authRef, &authRights, kAuthorizationEmptyEnvironment, authFlags, NULL);
+//	
+//	if(authStatus == errAuthorizationSuccess)
+//		NSLog(@"Auth approved!");
+//	else if(authStatus == errAuthorizationDenied)
+//		NSLog(@"Oh no, auth denied!");
 	
 	//AuthorizationItem authItems = {kAuthorizationRightExecute, 0, NULL, 0};
 	//AuthorizationRights authRights = {1, &authItems};
-	*/
-	
+
+	int port = 2525;
 	if(!isRunning) {
-		int port = 2525;
 		
-		if(port < 0 || port > 65535)
-			port = 0;
+		[[NSUserDefaults standardUserDefaults] synchronize];
+		int portSelection = [[NSUserDefaults standardUserDefaults] integerForKey:@"portSelection"];
+		
+		NSLog(@"portSelection: %@", portSelection);
+		if(portSelection == 0) {
+			int port = 2525;
+		} else if (portSelection == 1) {
+			// auth it
+			int port = 2555;
+		} else {
+			// pull custom port
+		}
+		
+//		if(port < 0 || port > 65535)
+//			port = 0;
 		
 		NSError *error = nil;
 		if(![listenSocket acceptOnPort:port error:&error]) {
@@ -125,15 +152,21 @@
 		NSLog(@"Running...");
 		isRunning = YES;
 		[startStopButton setLabel:@"Stop SMTP"];
+		NSNumber *portNum = [NSNumber numberWithInt:port];
+		NSString *startMsg = [NSString stringWithFormat:@"Started listening on port: %@\r\n", portNum];
+		[self send:startMsg onSocket:listenSocket];
 		
 	} else { // stop time
+		NSNumber *portNum = [NSNumber numberWithInt:port];
+		NSString *startMsg = [NSString stringWithFormat:@"Stopped listening on port: %@\r\n", portNum];
+		[self send:startMsg onSocket:listenSocket];
 		[listenSocket disconnect];
 		
 		int i;
 		for(i = 0; i < [connectedSockets count]; i++) {
 			[[connectedSockets objectAtIndex:i] disconnect];
 		}
-		
+
 		isRunning = NO;
 		[startStopButton setLabel:@"Start SMTP"];
 	}

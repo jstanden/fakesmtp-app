@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B5A387E11336A6C00CC7A11 /* PrefsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B5A387D11336A6C00CC7A11 /* PrefsController.m */; };
+		1B740EF61134730300927AD7 /* UserDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B740EF51134730300927AD7 /* UserDefaults.plist */; };
+		1BAB3DF7112319A400E1EAB0 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BAB3DF6112319A300E1EAB0 /* Sparkle.framework */; };
+		1BAB3E1A11231A1000E1EAB0 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1BAB3DF6112319A300E1EAB0 /* Sparkle.framework */; };
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -16,7 +20,6 @@
 		B8A7D0C30EE7B24E002DC460 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = B8A7D0C20EE7B24E002DC460 /* AsyncSocket.m */; };
 		B8A7D2A30EE7D089002DC460 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8A7D2A20EE7D089002DC460 /* Security.framework */; };
 		B8A7D3860EE8134B002DC460 /* Mail.icns in Resources */ = {isa = PBXBuildFile; fileRef = B8A7D3850EE8134B002DC460 /* Mail.icns */; };
-		B8B37835101B7DDA00A9D525 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8B37834101B7DDA00A9D525 /* Sparkle.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,6 +29,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				1BAB3E1A11231A1000E1EAB0 /* Sparkle.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -35,6 +39,10 @@
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		1B5A387C11336A6C00CC7A11 /* PrefsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefsController.h; sourceTree = "<group>"; };
+		1B5A387D11336A6C00CC7A11 /* PrefsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrefsController.m; sourceTree = "<group>"; };
+		1B740EF51134730300927AD7 /* UserDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserDefaults.plist; sourceTree = "<group>"; };
+		1BAB3DF6112319A300E1EAB0 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
@@ -49,7 +57,6 @@
 		B8A7D0C20EE7B24E002DC460 /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSocket.m; sourceTree = "<group>"; };
 		B8A7D2A20EE7D089002DC460 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = /System/Library/Frameworks/Security.framework; sourceTree = "<absolute>"; };
 		B8A7D3850EE8134B002DC460 /* Mail.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Mail.icns; sourceTree = "<group>"; };
-		B8B37834101B7DDA00A9D525 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = "../../Xcode Projects/Sparkle.framework"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +66,7 @@
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				B8A7D2A30EE7D089002DC460 /* Security.framework in Frameworks */,
-				B8B37835101B7DDA00A9D525 /* Sparkle.framework in Frameworks */,
+				1BAB3DF7112319A400E1EAB0 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +78,8 @@
 			children = (
 				B82674170EE7A0EF002BF5D9 /* AppController.h */,
 				B82674180EE7A0EF002BF5D9 /* AppController.m */,
+				1B5A387C11336A6C00CC7A11 /* PrefsController.h */,
+				1B5A387D11336A6C00CC7A11 /* PrefsController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -78,6 +87,7 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1BAB3DF6112319A300E1EAB0 /* Sparkle.framework */,
 				B8A7D2A20EE7D089002DC460 /* Security.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 			);
@@ -105,7 +115,6 @@
 		29B97314FDCFA39411CA2CEA /* FakeSMTP */ = {
 			isa = PBXGroup;
 			children = (
-				B8B37834101B7DDA00A9D525 /* Sparkle.framework */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -129,6 +138,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1B740EF51134730300927AD7 /* UserDefaults.plist */,
 				B8315E140EE8EF9A00C69A3B /* dsa_pub.pem */,
 				B8A7D3850EE8134B002DC460 /* Mail.icns */,
 				8D1107310486CEB800E47090 /* Info.plist */,
@@ -195,6 +205,7 @@
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
 				B8A7D3860EE8134B002DC460 /* Mail.icns in Resources */,
 				B8315E150EE8EF9A00C69A3B /* dsa_pub.pem in Resources */,
+				1B740EF61134730300927AD7 /* UserDefaults.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +219,7 @@
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				B82674190EE7A0EF002BF5D9 /* AppController.m in Sources */,
 				B8A7D0C30EE7B24E002DC460 /* AsyncSocket.m in Sources */,
+				1B5A387E11336A6C00CC7A11 /* PrefsController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,6 +254,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/..\"",
 					"\"$(SRCROOT)/../../Xcode Projects\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -264,6 +277,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/..\"",
 					"\"$(SRCROOT)/../../Xcode Projects\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
