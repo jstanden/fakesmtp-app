@@ -11,9 +11,9 @@
 			<string key="NS.object.0">732</string>
 		</object>
 		<array class="NSMutableArray" key="IBDocument.EditedObjectIDs">
+			<integer value="529"/>
 			<integer value="371"/>
-			<integer value="57"/>
-			<integer value="521"/>
+			<integer value="29"/>
 		</array>
 		<array key="IBDocument.PluginDependencies">
 			<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -1445,7 +1445,7 @@
 									<int key="NSPeriodicInterval">25</int>
 								</object>
 								<object class="NSButtonCell" id="695119787">
-									<int key="NSCellFlags">67239424</int>
+									<int key="NSCellFlags">604110336</int>
 									<int key="NSCellFlags2">0</int>
 									<string key="NSContents">2525</string>
 									<reference key="NSSupport" ref="930706735"/>
@@ -2647,14 +2647,6 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
-						<string key="label">selectedPort</string>
-						<reference key="source" ref="562965542"/>
-						<reference key="destination" ref="216829789"/>
-					</object>
-					<int key="connectionID">566</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
 						<string key="label">portSelection</string>
 						<reference key="source" ref="562965542"/>
 						<reference key="destination" ref="216829789"/>
@@ -2712,9 +2704,9 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 							<reference ref="694149608"/>
 							<reference ref="391199113"/>
 							<reference ref="952259628"/>
-							<reference ref="379814623"/>
 							<reference ref="586577488"/>
 							<reference ref="302598603"/>
+							<reference ref="379814623"/>
 						</array>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">MainMenu</string>
@@ -3640,10 +3632,10 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 						<reference key="object" ref="243030822"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="100977337"/>
-							<reference ref="216829789"/>
 							<reference ref="800213980"/>
 							<reference ref="944510746"/>
 							<reference ref="205868188"/>
+							<reference ref="216829789"/>
 						</array>
 						<reference key="parent" ref="188112654"/>
 					</object>
@@ -3850,7 +3842,7 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 				<string key="24.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<integer value="1" key="24.ImportedFromIB2"/>
 				<string key="24.editorWindowContentRectSynchronizationRect">{{525, 802}, {197, 73}}</string>
-				<string key="29.IBEditorWindowLastContentRect">{{1049, 280}, {437, 20}}</string>
+				<string key="29.IBEditorWindowLastContentRect">{{934, 318}, {437, 20}}</string>
 				<string key="29.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<integer value="1" key="29.ImportedFromIB2"/>
 				<string key="29.WindowOrigin">{74, 862}</string>
@@ -3985,7 +3977,7 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 				<integer value="1" key="79.ImportedFromIB2"/>
 				<string key="80.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<integer value="1" key="80.ImportedFromIB2"/>
-				<string key="81.IBEditorWindowLastContentRect">{{412, 814}, {196, 203}}</string>
+				<string key="81.IBEditorWindowLastContentRect">{{1037, 115}, {196, 203}}</string>
 				<string key="81.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<integer value="1" key="81.ImportedFromIB2"/>
 				<string key="81.editorWindowContentRectSynchronizationRect">{{145, 474}, {199, 203}}</string>

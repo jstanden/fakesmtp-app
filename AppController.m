@@ -94,35 +94,6 @@
 
 -(IBAction)startStopServer:(id)sender {
 	
-//	AuthorizationRef authRef;
-//	AuthorizationRights authRights;
-//	AuthorizationFlags authFlags;
-//	
-//	authFlags = kAuthorizationFlagDefaults | 
-//		kAuthorizationFlagPreAuthorize |
-//		kAuthorizationFlagInteractionAllowed |
-//		kAuthorizationFlagExtendRights;
-//	
-//	AuthorizationItem authItem[1];
-//	authItem[0].name = "system.preferences"; // system.privilege.admin
-//	authItem[0].valueLength = 0;
-//	authItem[0].value = NULL;
-//	authItem[0].flags = 0;
-//	authRights.count = sizeof(authItem) / sizeof(authItem[0]);
-//	authRights.items = authItem;
-//	
-//	OSStatus authStatus;
-//	authStatus = AuthorizationCreate(NULL, kAuthorizationEmptyEnvironment, kAuthorizationFlagDefaults, &authRef);
-//	
-//	authStatus = AuthorizationCopyRights(authRef, &authRights, kAuthorizationEmptyEnvironment, authFlags, NULL);
-//	
-//	if(authStatus == errAuthorizationSuccess)
-//		NSLog(@"Auth approved!");
-//	else if(authStatus == errAuthorizationDenied)
-//		NSLog(@"Oh no, auth denied!");
-	
-	//AuthorizationItem authItems = {kAuthorizationRightExecute, 0, NULL, 0};
-	//AuthorizationRights authRights = {1, &authItems};
 	int port = 0;
 	[[NSUserDefaults standardUserDefaults] synchronize];
 	int portSelection = [[NSUserDefaults standardUserDefaults] integerForKey:@"portSelection"];
@@ -137,12 +108,10 @@
 		port = [[NSUserDefaults standardUserDefaults] integerForKey:@"port"];
 		NSLog(@"Custom port: %i", port);	
 	}
-	
-	NSLog(@"Listening on port: %i", port);	
+	// just to make sure the message is proper, in case someone 
+	// changes the custom port setting while the app is listening
+	NSLog(@"Listening on port: %i", port);
 	if(!isRunning) {
-		if (port < 1000) {
-			// we are loggin this sucker !
-		}
 		NSError *error = nil;
 		if(![listenSocket acceptOnPort:port error:&error]) {
 			NSLog(@"Error: %@", error);
@@ -153,10 +122,12 @@
 		isRunning = YES;
 		[startStopButton setLabel:@"Stop SMTP"];
 		NSNumber *portNum = [NSNumber numberWithInt:port];
+		[[NSUserDefaults standardUserDefaults] setValue:portNum forKey:@"runningOnPort"];
 		NSString *startMsg = [NSString stringWithFormat:@"Started listening on port: %@\r\n", portNum];
 		[self send:startMsg onSocket:listenSocket];
 		
 	} else { // stop time
+		port = [[NSUserDefaults standardUserDefaults] integerForKey:@"runningOnPort"];
 		NSNumber *portNum = [NSNumber numberWithInt:port];
 		NSString *startMsg = [NSString stringWithFormat:@"Stopped listening on port: %@\r\n", portNum];
 		[self send:startMsg onSocket:listenSocket];

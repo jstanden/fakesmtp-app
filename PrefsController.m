@@ -19,8 +19,8 @@
 	
 	int portNum = [customPort intValue];
 	
-	if (portNum < 0) {
-		[customPort setStringValue:@"0"];
+	if (portNum < 1024) {
+		[customPort setStringValue:@"1025"];
 	}
 	if (portNum > 65535) {
 		[customPort setStringValue:@"65535"];
