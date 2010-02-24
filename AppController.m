@@ -135,15 +135,14 @@
 		port = 25;
 	} else {
 		port = [[NSUserDefaults standardUserDefaults] integerForKey:@"port"];
-		if (port < 0 || port > 65535) {
-			
-		}
 		NSLog(@"Custom port: %i", port);	
 	}
 	
 	NSLog(@"Listening on port: %i", port);	
 	if(!isRunning) {
-		
+		if (port < 1000) {
+			// we are loggin this sucker !
+		}
 		NSError *error = nil;
 		if(![listenSocket acceptOnPort:port error:&error]) {
 			NSLog(@"Error: %@", error);

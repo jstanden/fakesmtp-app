@@ -10,11 +10,21 @@
 
 
 @implementation PrefsController
-- (void)textDidChange:(NSNotification *)aNotification {
+- (void)controlTextDidChange:(NSNotification *)aNotification {
 	NSString *port = [customPort stringValue];
-	NSLog(@"Method Called.");
-	if ([port length] == 0) {
+	if ([port length] > 0) {
 		[portSelection selectCellAtRow:2 column:0];
+		[[NSUserDefaults standardUserDefaults] setValue:@"2" forKey:@"portSelection"];
 	}
+	
+	int portNum = [customPort intValue];
+	
+	if (portNum < 0) {
+		[customPort setStringValue:@"0"];
+	}
+	if (portNum > 65535) {
+		[customPort setStringValue:@"65535"];
+	}
+	[[NSUserDefaults standardUserDefaults] setValue:port forKey:@"port"];
 }
 @end

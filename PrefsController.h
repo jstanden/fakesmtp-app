@@ -13,7 +13,6 @@
 	IBOutlet NSMatrix *portSelection;
 	IBOutlet NSTextField *customPort;
 }
--(void)textDidChange:(NSNotification *)aNotification;
-
+-(void)controlTextDidChange:(NSNotification *)aNotification;
 @end
 
