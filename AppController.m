@@ -35,6 +35,8 @@
 		
 		isRunning = NO;
 		isInsideData = NO;
+		isInsideAuth = NO;
+		authCount = 0;
 	}
 	
 	return self;
@@ -180,6 +182,22 @@
 			[sock disconnect];
 			return;
 			
+		} else if([msg length] >= 4 && [[msg substringToIndex:4] isCaseInsensitiveLike:@"EHLO"]) {
+			[self send:@"250-mail.fakemail\r\n" onSocket:sock];
+			[self send:@"250-PIPELINING\r\n" onSocket:sock];
+			[self send:@"250-SIZE 1048576000\r\n" onSocket:sock];
+			[self send:@"250-ETRN\r\n" onSocket:sock];
+			[self send:@"250-AUTH PLAIN LOGIN\r\n" onSocket:sock];
+			[self send:@"250-AUTH=PLAIN LOGIN\r\n" onSocket:sock];
+			[self send:@"250-8BITMIME\r\n" onSocket:sock];
+			[self send:@"250-ENHANCEDSTATUSCODES\r\n" onSocket:sock];
+			[self send:@"250 DSN\r\n" onSocket:sock];
+			
+		} else if([msg isCaseInsensitiveLike:@"AUTH LOGIN"]) {
+			isInsideAuth = YES;
+			authCount = 0;
+			[self send:@"334 Who are you again?\r\n" onSocket:sock];
+			
 		} else if([msg length] >= 4 && [[msg substringToIndex:4] isCaseInsensitiveLike:@"HELO"]) {
 			[self send:@"250 Do I know you?\r\n" onSocket:sock];
 
@@ -189,10 +207,20 @@
 		} else if([msg length] >= 7 && [[msg substringToIndex:7] isCaseInsensitiveLike:@"RCPT TO"]) {
 			[self send:@"250 You're friends with _THEM_?!\r\n" onSocket:sock];
 			
-		} else if([msg length] >= 4 && [[msg substringToIndex:4] isCaseInsensitiveLike:@"DATA"]) {
+		} else if([msg isCaseInsensitiveLike:@"DATA"]) {
 			isInsideData = YES;
 			[self send:@"354 You're going to talk no matter what I say, go ahead.\r\n" onSocket:sock];
 						
+		} else if (isInsideAuth) {
+			if(0 == authCount) {
+				[self send:@"334 Sounds vaguely familiar... What's the secret incantation?\r\n" onSocket:sock];
+				authCount++;
+			} else if(1 == authCount) {
+				[self send:@"235 Klaatu barada niCHUUhhhHUHhhuh?  Welcome back.\r\n" onSocket:sock];
+				isInsideAuth = NO;
+				authCount = 0;
+			}
+			
 		} else if (isInsideData) {
 			// [TODO] Building DATA block
 			

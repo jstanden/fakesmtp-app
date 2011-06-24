@@ -18,7 +18,8 @@
 	IBOutlet id clearLogButton;
 	IBOutlet id textView;
 
-	BOOL isRunning, isInsideData;
+	BOOL isRunning, isInsideData, isInsideAuth;
+	int authCount;
 }
 
 -(IBAction)startStopServer:(id)sender;
